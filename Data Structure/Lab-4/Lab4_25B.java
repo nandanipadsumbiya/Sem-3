@@ -26,7 +26,7 @@ public class Lab4_25B{
 		}
 		System.out.println("Array AFTER deleting duplicate : ");
 		for(int i=0;i<n;i++){
-			System.out.println(arr[i]);//n=length thai ?
+			System.out.println(arr[i]);
 		}
 	}
 }
