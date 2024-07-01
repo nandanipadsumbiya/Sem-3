@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Lab2_6
+	</title>
+</head>
+<body>
+	<script type="text/javascript">
+		let n=parseInt(prompt("Enter number"));
+
+		if(n==='null'||n===' '){
+			document.write("please Enter the number");
+		}
+		else if( n<0 || n>999){
+			document.write(" please Enter the number betweet 0-999");
+		}
+		var units=['zero','one','two','three','four','five','six','seven','eight','nine'];
+		var teens=['ten','elevan','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','ninteen'];
+		var tens=['','','twenty', 'thirty','fourty','fifty','sixty','seventy','eighty','ninety','hundred'];
+
+			var result='';
+		if(n>=100){
+             result+=units[Math.floor(n/100)]+' hundred ';
+             n%=100;
+		}
+		 if(n>=20){
+			result+=tens[Math.floor(n/10)]+'  ';
+			n%=10;
+
+		}
+		else if(n>=10){
+			result+=teens[n-10]+'  ';
+			n=0;
+		}
+        if(n>0){
+        	result+= units[n]+' ';
+        }
+        document.write(result.trim());
+	</script>
+
+</body>
+</html>
