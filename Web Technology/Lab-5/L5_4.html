@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Lab5_4A
+	</title>
+</head>
+<body>
+		<div>
+		Username : 
+	   </div>
+		<div><input type="text" name="text" id="mytext" style="border: 2px solid black; width: 200px; margin-bottom: 4px">
+	   </div>
+
+	    <div>
+		Password : </div>
+		<div><input type="text" name="text" id="Password" style="border: 2px solid black; width:200px; margin-bottom: 4px">
+	    </div>
+
+	    <div>
+		RepeatPassword :</div> 
+		<div><input type="text" name="text" id="RPassword" style="border: 2px solid black; width:200px; margin-bottom: 4px">
+	    </div>
+
+
+	    <div>
+		MobileNo : </div>
+		<div><input type="text" name="text"  id="contact" style="border: 2px solid black; width: 200px; margin-bottom: 4px">
+	    </div>
+
+	     <div>
+		Data of Birth : </div>
+		<div><input type="date" name="DOB"  id="DOB" style="border: 2px solid black; width: 200px; margin-bottom: 4px">
+	    </div>
+
+	    <div>
+		EnrollmentNo :</div>
+		<div> <input type="text" name="text" id="digit" style="border: 2px solid black; width: 200px; margin-bottom: 4px">
+	    </div>
+
+	    <div>
+		Email : 
+		<div><input type="text" name="text" id="email" style="border: 2px solid black; width: 200px; margin-bottom: 4px">
+	    </div>
+
+	    <button onclick="check()">Submit</button>
+			<div><p id = "Age"></p></div>
+
+	<script type="text/javascript">
+				let a=document.getElementById('mytext');
+				let b=document.getElementById('Password');
+				let c=document.getElementById('contact');
+				let rb = document.getElementById('RPassword');	
+				let e=document.getElementById('digit');
+				let f=document.getElementById('email');
+
+		function check(){
+			validation();
+			calAge();
+		}
+
+		function validation(){
+
+        let pattern5 = /^[a-zA-Z0-9]$/
+        let regexp4 = new RegExp(pattern5);
+
+				let pattern=/^[a-zA-Z0-9]{8-12}$/;
+				let regexp = new RegExp(pattern);
+
+				let pattern2=/^[0-9]{10}$/;
+				let regexp1=new RegExp(pattern2);
+
+				let pattern3=/^2301[0-9]{7}$/;
+				let regexp2=new RegExp(pattern3);
+
+				// let pattern4=/^[\\w-_\.]*[\\w-_\.]\@[\\w]\.+[\\w]+[\\w]+[\\w]$/;
+				let regexp3=new RegExp(pattern3);
+		
+		if(a.value.length<8){
+			alert ("Username is not valid(username must be of minimum 8 characters)");
+			console.log("-----------------");
+		}
+		if( b.value.length<8  || b.value.length>12){
+			alert("Password must be between 8 to 12 char");
+		}
+		else if(regexp.test(b.value)){
+			alert("Password must contain at least 1 special char")
+		}
+
+		else if(b.value !=rb.value){
+			alert("RPassword do not match");
+		}
+
+
+
+		//MobileNo
+		if(c.value.length<10){
+			alert("MobileNo is not valid ");
+			
+		}
+		else if(! regexp1.test(c.value)){
+			alert("MobileNo is not valid");
+		}
+		//EnrollmentNo
+		if(e.value.length <= 11){
+			alert("EnrollmentNo must be 11 char");
+		}
+		else if(regexp2.test(e.value)){
+			alert("EnrollmentNo is not valid");
+		}
+}
+		
+
+function calAge(){
+
+			let DOB=new Date(document.getElementById('DOB').value);
+
+			let today = new Date();
+			let Age= today.getFullYear() - DOB.getFullYear();
+			let monthDiff = today.getMonth() - DOB.getMonth();
+
+			if(monthDiff<0||(monthDiff===0&&today.getDate()<DOB.getDate())){
+				Age--;
+			}
+			document.getElementById("Age").innerHTML = Age;
+
+		}
+
+
+
+	</script>
+
+</body>
+</html>
