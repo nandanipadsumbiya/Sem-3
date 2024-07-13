@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<title>
+		change background
+	</title>
+</head>
+<body>
+	<button onclick="changebackground()">changebackground</button>
+	<script type="text/javascript">
+		let body=document.querySelector("body");
+
+		function changebackground(){
+			let a=Math.floor(Math.random()*255);
+			let b=Math.floor(Math.random()*255);
+			let c=Math.floor(Math.random()*255);
+
+			body.style.backgroundColor="rgb("+a+","+b+","+c+")";
+		}
+
+	</script>
+
+</body>
+</html>

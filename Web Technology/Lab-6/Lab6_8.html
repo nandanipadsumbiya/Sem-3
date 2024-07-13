@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Lab6_8
+	</title>
+
+</head>
+	<style type="text/css">
+		#a{
+			width: 30px;
+		}
+	</style>
+
+<body>
+	<h1 onmouseover="yellow()" , onmouseout="black()" id="a">changetext</h1>
+	<button onclick="gclick()">green</button>
+	<button onclick="rclick()">red</button>
+	<button onclick="Dclick()">time and date</button>
+	<div id=time>
+	</div>
+<script type="text/javascript">
+		function yellow(){
+			document.body.style.color="rgb(255,255,0)"
+	    }
+	    function black(){
+	    	document.body.style.color="rgb(0,0,0)"
+	    }
+	    function gclick(){
+	    	document.body.style.backgroundColor="green"
+	    }
+	    function rclick(){
+	    	document.body.style.backgroundColor="red"
+	    }
+	    function Dclick(){
+	    	
+	    	const date=new Date();
+	    	document.getElementById('time').innerHTML=date;
+	    
+	    }
+	    
+
+</script>
+	
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>
+		change properties
+	</title>
+    <style type="text/css">
+	#pic{
+		width: 30px;
+		border: 2px solid black;
+	}
+</style>
+	
+</head>
+<body>
+	<button onclick="change()">change</button>
+	<button onclick="start()">start</button>
+	<br/><br/>
+	<img src="./shooting.jpg" id="pic">
+	
+
+    <script type="text/javascript">
+    	
+    	function change() {
+    		
+    		// document.getElementById('pic').style.width=10+"px";
+    		// width++;
+			document.getElementById('pic').style.width =40+"px";
+    	}
+    	function start() {
+    		a=setInterval(change,1000);
+
+			
+		}
+    	
+
+    	
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>
+		CURD //creat update read delete
+	</title>
+	<style type="text/css">
+		#form,#result{
+			width: 50%;
+			float: left;
+		}
+		#errmag{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="form">
+		<input type="text" id="textname" onfocus="reset()">
+		<button onclick="adddata()">Add</button>
+		<br/>
+		<span id="errmag"></span>
+	</div>
+
+	<div id="result"></div>
+
+	<script type="text/javascript">
+		data=['nandani','shruti','riya','darshi','mansi']
+		idToUpdate=-1;
+
+		function reset(){
+			tempdata=document.getElementById('textname');
+			tempdata.style.border="2px solid black"
+			document.getElementById('errmag').innerHTML=" ";
+		}
+
+		//CURD (creat update read delete)
+
+		function adddata(){
+			tempdata=document.getElementById('textname')
+
+			if(tempdata.value==" "){
+				tempdata.style.border="2px solid red "
+				document.getElementById('errmag').innerHTML="Please Enter Name*"
+			}
+			else{
+
+				if(idToUpdate>=0){
+					//edit
+					data[idToUpdate]=tempdata.value;
+				}
+				else{
+					//add
+					data.push(tempdata.value);
+				}
+				tempdata.value=" ";
+				displaydata();
+			}
+		}
+
+		function deletedata(id) {
+			ans=confirm("Are you sure you want to delete?")
+
+			if(ans){
+				data.splice(id,1);
+				displaydata();
+			}
+		}
+
+		function setdata(id){
+			idToUpdate=id;
+			document.getElementById('textname').value=data[id];
+		}
+
+		function displaydata() {
+			temp=document.getElementById('result')
+			tempString ="<table border='1'>";
+
+			for(i=0;i<data.length;i++){
+				tempString+="<tr>";
+				tempString+="<td>";
+				tempString+=data[i];
+				tempString+="</td>";
+				tempString+="<td>";
+				tempString+="<button onclick='deletedata("+i+")'>Delete</button>";
+				tempString+="</td>";
+				tempString+="<td>";
+				tempString+="<button onclick='setdata("+i+")'>Edit</button>";
+				tempString+="</td>";
+				tempString+="</tr>";
+			}
+			tempString+="</table>";
+			temp.innerHTML=tempString;
+		}
+		displaydata();
+	</script>
+
+</body>
+</html>
