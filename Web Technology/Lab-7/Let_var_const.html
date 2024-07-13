@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>
+		Let & var & const
+	</title>
+</head>
+<body>
+
+	<input type="text" id="txtName">
+	<span id="errMsg"></span>
+	<br/>
+	<button onclick="testData()">Test</button>
+
+	<script type="text/javascript">
+		 var a=2
+		 function letdemo(){
+		 	let a=3;
+		 	console.log(a);
+		 }
+		 letdemo();
+		console.log(a);
+		
+		//def between var & let 
+		a = 10; // global scope
+		function abc() {
+			var a = 20; // function scope
+			if(true){
+				let a = 30; // block scope
+				console.log("Value of a inside block = ",a);
+			}
+			console.log("Value of a inside function = ",a);
+		}
+		abc();
+		console.log("Value of a outside function = ",a);
+
+
+
+		//regexp
+	
+		function testData(){
+			name = document.getElementById('txtName').value;
+
+			//23 01 01 01 173
+
+			pattern = "^0281[0-9]{7}$";
+
+			regexp = new RegExp(pattern);
+
+			if(regexp.test(name)){
+				document.getElementById('errMsg').innerHTML = "Valid"
+			}
+			else{
+				document.getElementById('errMsg').innerHTML = "Invalid"
+			}
+
+		}
+
+		//spice Demo
+		students = ['arjun','darshan','bala','rajkot']
+
+		console.log("Before",students);
+
+		students.splice(2,2);
+
+		console.log("After",students);
+
+		//variable
+		name = "arjun\'s laptop"
+		console.log(name)
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>
+		for of
+	</title>
+</head>
+<body>
+	<script type="text/javascript">
+		let student=[
+				s1={
+					'name':'abc',
+					'rollno':222
+				},
+				s2={
+					'name':'xyz',
+					'rollno':333
+				}
+			]
+		// for of
+		for(s of student){
+			console.log(s);
+		}
+
+		//for each
+		console.log("student=",student);
+		result=student.forEach((temp,i)=>{
+			console.log("value=",temp,"inddex=",i);
+		})
+	</script>
+
+</body>
+</html>

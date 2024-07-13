@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>
+		Default parameter
+	</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function hello() {
+			console.log("hello");
+		}
+
+		function world() {
+			console.log("world");
+		}
+
+		function add(num1,num2,callbake) {
+		console.log(num1+num2);
+
+		callbake();	
+		}
+		num2=1;
+		add(20,num2,hello);
+		// add(20,30,world);
+		// add(20,30,()=>{
+		// 	console.log("hii");
+		// })
+
+	</script>
+
+</body>
+</html>

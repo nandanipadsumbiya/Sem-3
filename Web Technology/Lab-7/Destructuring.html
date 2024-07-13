@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>
+		Destructuring
+	</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var student={
+			'name':'abc',
+			'rollno':222,
+			'email':'asdd@gamil.com',
+			'clg':'darshan'
+		}
+
+		var {name,rollno,...other}=student;
+
+		console.log(name);
+		// console.log(rollno);
+		console.log(other);
+
+	</script>
+
+</body>
+</html>
