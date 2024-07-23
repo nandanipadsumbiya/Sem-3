@@ -225,12 +225,13 @@ class Linked_List{
         }
     }
 
-    //sort element in linked list
+   //sort element in linked list
     public void sort(){
         Node pred=first;
-        Node save=first.link;
+        Node curr=first.link;
         //int count=0;
-        for(int i=0;i<count();i++){
+        for(int i=0;i<count()-1;i++){
+            Node save = curr;
             for(int j=0;j<count()-i-1;j++){
                 if(pred.info>save.info){
                     int temp1=save.info;
@@ -240,6 +241,8 @@ class Linked_List{
                 pred=save;
                 save=save.link;
             }
+            pred = first;
+            curr = first.link;
         }
     }
 
