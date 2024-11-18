@@ -24,7 +24,7 @@ SELECT * FROM STUDENT
 
 --------------------------------- PART A--------------------------------
 
---1.Display the name of students whose name starts with ‘k’.
+--1.Display the name of students whose name starts with â€˜kâ€™.
 SELECT FIRSTNAME FROM STUDENT
 WHERE FIRSTNAME LIKE 'K%'
 
@@ -38,17 +38,17 @@ WHERE CITY LIKE '%A'
 AND CITY LIKE '______'
 
 
---4. Display all the students whose last name ends with ‘tel’
+--4. Display all the students whose last name ends with â€˜telâ€™
 SELECT LASTNAME FROM STUDENT
 WHERE LASTNAME LIKE '%TRL'--TRL TEL ?
 
---5. Display all the students whose first name starts with ‘ha’ & ends with‘t’.
+--5. Display all the students whose first name starts with â€˜haâ€™ & ends withâ€˜tâ€™.
 SELECT FIRSTNAME FROM STUDENT
 WHERE FIRSTNAME LIKE 'HA%'
 AND FIRSTNAME LIKE '%T'
 
 
---6.Display all the students whose first name starts with ‘k’ and third character is ‘y’.
+--6.Display all the students whose first name starts with â€˜kâ€™ and third character is â€˜yâ€™.
 SELECT FIRSTNAME FROM STUDENT
 WHERE FIRSTNAME LIKE 'K%'
 AND FIRSTNAME LIKE '__Y%'
@@ -64,13 +64,84 @@ WHERE WEBSITE IS NULL AND FIRSTNAME LIKE '_____'
 
 
 
---8.Display all the students whose last name consist of ‘jer’. 
+--8.Display all the students whose last name consist of â€˜jerâ€™. 
 SELECT LASTNAME FROM STUDENT
 WHERE LASTNAME LIKE '%JER%'
 
---9. Display all the students whose city name starts with either ‘r’ or ‘b’
+--9. Display all the students whose city name starts with either â€˜râ€™ or â€˜bâ€™
 SELECT CITY FROM STUDENT 
 WHERE CITY LIKE '[R,B]%'
 
 
---10. Display all the name students having websites.SELECT FIRSTNAME FROM STUDENTWHERE WEBSITE NOT  LIKE 'NULL'--11. Display all the students whose name starts from alphabet A to H.SELECT FIRSTNAME FROM STUDENT WHERE FIRSTNAME LIKE '[A-H]%'--12. Display all the students whose name’s second character is vowel.SELECT FIRSTNAME FROM STUDENTWHERE FIRSTNAME LIKE '_[A,E,I,O,U]%'--13.Display the name of students having no website and name consists of minimum five charactersSELECT FIRSTNAME FROM STUDENT WHERE WEBSITE LIKE'NULL'AND FIRSTNAME LIKE '_____%'--14.  Display all the students whose last name starts with ‘Pat’. SELECT LASTNAME FROM STUDENTWHERE LASTNAME LIKE 'PAT%'--15. Display all the students whose city name does not starts with ‘b’.SELECT CITY FROM STUDENTWHERE CITY NOT LIKE 'B%'--------------------------- PART B -------------------------1. Display all the students whose name starts from alphabet A or H.SELECT FIRSTNAME FROM STUDENTWHERE FIRSTNAME LIKE '[A-H]%'--2.Display all the students whose name’s second character is vowel and of and start with H.SELECT FIRSTNAME FROM STUDENTWHERE FIRSTNAME LIKE '_[A,E,I,O,U]%'AND FIRSTNAME LIKE 'H%'--3. Display all the students whose last name does not ends with ‘a’.SELECT LASTNAME FROM STUDENTWHERE LASTNAME NOT LIKE '%A'--4. Display all the students whose first name starts with consonant.SELECT FIRSTNAME FROM STUDENTWHERE FIRSTNAME LIKE '[A-Z]%'--5. Display all the students whose website contains .net.SELECT WEBSITE FROM STUDENTWHERE WEBSITE LIKE '%.NET%'------------------------- PART C -----------------------------1.Display all the students whose address consist of -.SELECT * FROM STUDENTWHERE ADDRESS LIKE '%-%'--2.Display all the students whose address contains single quote or double quote.SELECT * FROM STUDENTWHERE ADDRESS LIKE '%''%''%' OR ADDRESS LIKE '%"%"%'--3. Display all the students whose website contains @.SELECT * FROM STUDENTWHERE WEBSITE LIKE '%@%'--4. Display all the names those are either four or five characters.SELECT FIRSTNAME FROM STUDENTWHERE FIRSTNAME LIKE '____' OR FIRSTNAME LIKE '_____'
+--10. Display all the name students having websites.
+SELECT FIRSTNAME FROM STUDENT
+WHERE WEBSITE NOT  LIKE 'NULL'
+
+--11. Display all the students whose name starts from alphabet A to H.
+SELECT FIRSTNAME FROM STUDENT 
+WHERE FIRSTNAME LIKE '[A-H]%'
+
+
+--12. Display all the students whose nameâ€™s second character is vowel.
+SELECT FIRSTNAME FROM STUDENT
+WHERE FIRSTNAME LIKE '_[A,E,I,O,U]%'
+
+--13.Display the name of students having no website and name consists of minimum five characters
+SELECT FIRSTNAME FROM STUDENT 
+WHERE WEBSITE LIKE'NULL'
+AND FIRSTNAME LIKE '_____%'
+
+--14.  Display all the students whose last name starts with â€˜Patâ€™. 
+SELECT LASTNAME FROM STUDENT
+WHERE LASTNAME LIKE 'PAT%'
+
+--15. Display all the students whose city name does not starts with â€˜bâ€™.
+SELECT CITY FROM STUDENT
+WHERE CITY NOT LIKE 'B%'
+
+--------------------------- PART B -----------------------
+
+--1. Display all the students whose name starts from alphabet A or H.
+SELECT FIRSTNAME FROM STUDENT
+WHERE FIRSTNAME LIKE '[A-H]%'
+
+--2.Display all the students whose nameâ€™s second character is vowel and of and start with H.
+SELECT FIRSTNAME FROM STUDENT
+WHERE FIRSTNAME LIKE '_[A,E,I,O,U]%'
+AND FIRSTNAME LIKE 'H%'
+
+--3. Display all the students whose last name does not ends with â€˜aâ€™.
+SELECT LASTNAME FROM STUDENT
+WHERE LASTNAME NOT LIKE '%A'
+
+--4. Display all the students whose first name starts with consonant.
+SELECT FIRSTNAME FROM STUDENT
+WHERE FIRSTNAME LIKE '[A-Z]%'
+
+--5. Display all the students whose website contains .net.
+SELECT WEBSITE FROM STUDENT
+WHERE WEBSITE LIKE '%.NET%'
+
+
+------------------------- PART C ---------------------------
+
+--1.Display all the students whose address consist of -.
+SELECT * FROM STUDENT
+WHERE ADDRESS LIKE '%-%'
+
+
+--2.Display all the students whose address contains single quote or double quote.
+SELECT * FROM STUDENT
+WHERE ADDRESS LIKE '%''%''%' OR ADDRESS LIKE '%"%"%'
+
+
+--3. Display all the students whose website contains @.
+SELECT * FROM STUDENT
+WHERE WEBSITE LIKE '%@%'
+
+
+
+--4. Display all the names those are either four or five characters.
+SELECT FIRSTNAME FROM STUDENT
+WHERE FIRSTNAME LIKE '____' OR FIRSTNAME LIKE '_____'
+
