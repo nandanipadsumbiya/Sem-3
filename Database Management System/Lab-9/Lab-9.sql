@@ -70,7 +70,9 @@ SELECT NAME FROM Stu_Detail WHERE RNO=(SELECT RNO FROM ACADEMIC WHERE SPI=(SELEC
 SELECT * FROM Stu_Detail WHERE RNO IN(SELECT RNO FROM Academic WHERE Bklog>1)
 
 ------------------------------------PART B--------------------------------------------
---1.Display name of students who are either from computer department or from mechanical department.SELECT NAME FROM Stu_Detail WHERE DID IN (SELECT DID FROM Department WHERE DName ='COMPUTER' OR DName='MECHANICAL')
+--1.Display name of students who are either from computer department or from mechanical department.
+SELECT NAME FROM Stu_Detail WHERE DID IN (SELECT DID FROM Department WHERE DName ='COMPUTER' OR DName='MECHANICAL')
+
 --2. Display name of students who are in same department as 102 studying in.
 SELECT NAME FROM Stu_Detail WHERE DID=(SELECT DID FROM Stu_Detail WHERE RNO=102) AND RNO!=102
 
@@ -155,7 +157,30 @@ SELECT NAME FROM Computer
 INTERSECT
 SELECT NAME FROM Electrical
 
---4.Display name of students who are in Computer but not in Electrical.SELECT NAME FROM ComputerEXCEPTSELECT NAME FROM Electrical--5.Display name of students who are in Electrical but not in Computer.SELECT NAME FROM ElectricalEXCEPT SELECT NAME FROM Computer--6.Display all the details of students who are either in Computer or in Electrical.SELECT * FROM ComputerUNION SELECT * FROM Electrical--7. Display all the details of students who are in both Computer and Electrical.SELECT * FROM ComputerINTERSECTSELECT * FROM Electrical--------------------------------------PART B-----------------------------------------SELECT * FROM Emp_DATA
+--4.Display name of students who are in Computer but not in Electrical.
+SELECT NAME FROM Computer
+EXCEPT
+SELECT NAME FROM Electrical
+
+--5.Display name of students who are in Electrical but not in Computer.
+SELECT NAME FROM Electrical
+EXCEPT 
+SELECT NAME FROM Computer
+
+--6.Display all the details of students who are either in Computer or in Electrical.
+SELECT * FROM Computer
+UNION 
+SELECT * FROM Electrical
+
+--7. Display all the details of students who are in both Computer and Electrical.
+SELECT * FROM Computer
+INTERSECT
+SELECT * FROM Electrical
+
+
+--------------------------------------PART B-----------------------------------------
+
+SELECT * FROM Emp_DATA
 SELECT * FROM Customer
 
 --1. Display name of persons who is either Employee or Customer.
@@ -168,7 +193,26 @@ SELECT NAME FROM Emp_DATA
 UNION ALL
 SELECT NAME FROM Customer
 
---3. Display name of persons who is both Employee as well as Customer.SELECT NAME FROM Emp_DATAINTERSECTSELECT  NAME FROM Customer--4.Display name of persons who are Employee but not Customer.SELECT NAME FROM Emp_DATAEXCEPT SELECT NAME FROM Customer--5. Display name of persons who are Customer but not Employee.SELECT NAME FROM CustomerEXCEPTSELECT NAME FROM Emp_DATA---------------------------------PART C-----------------------------------------------1. Display all the details of persons who is either Employee or Customer.
+--3. Display name of persons who is both Employee as well as Customer.
+SELECT NAME FROM Emp_DATA
+INTERSECT
+SELECT  NAME FROM Customer
+
+--4.Display name of persons who are Employee but not Customer.
+SELECT NAME FROM Emp_DATA
+EXCEPT 
+SELECT NAME FROM Customer
+
+--5. Display name of persons who are Customer but not Employee.
+SELECT NAME FROM Customer
+EXCEPT
+SELECT NAME FROM Emp_DATA
+
+
+
+---------------------------------PART C---------------------------------------------
+
+--1. Display all the details of persons who is either Employee or Customer.
 SELECT * FROM Emp_DATA
 UNION 
 SELECT * FROM Customer
@@ -178,4 +222,18 @@ SELECT * FROM Emp_DATA
 UNION ALL
 SELECT * FROM Customer
 
---3. Display all the details of persons who is both Employee as well as Customer.SELECT * FROM Emp_DATAINTERSECTSELECT  * FROM Customer--4.Display all the details of persons who are Employee but not Customer.SELECT * FROM Emp_DATAEXCEPT SELECT * FROM Customer--5. Display all the details of persons who are Customer but not Employee.SELECT * FROM CustomerEXCEPTSELECT * FROM Emp_DATA
+--3. Display all the details of persons who is both Employee as well as Customer.
+SELECT * FROM Emp_DATA
+INTERSECT
+SELECT  * FROM Customer
+
+--4.Display all the details of persons who are Employee but not Customer.
+SELECT * FROM Emp_DATA
+EXCEPT 
+SELECT * FROM Customer
+
+--5. Display all the details of persons who are Customer but not Employee.
+SELECT * FROM Customer
+EXCEPT
+SELECT * FROM Emp_DATA
+
